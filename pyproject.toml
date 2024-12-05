@@ -1,21 +1,26 @@
 [tool.poetry]
-name = "python-demo"
-version = "0.1.0"
-description = "A simple Python demo package"
-authors = ["Your Name <you@example.com>"]
-license = "MIT"
+name = "python-demo"  # 包的名称
+version = "1.0.0"  # 包的版本
+description = "A simple Python demo package"  # 包的描述
+authors = ["Your Name <you@example.com>"]  # 包的作者信息
+license = "MIT"  # 包的许可证类型
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.8"  # 指定支持的 Python 版本范围
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-
+requires = ["poetry-core>=1.0.0","setuptools>=40.8.0", "wheel"]  # 构建系统所需的依赖
 
 [[tool.poetry.packages]]
-include = "app/"
+include = "app/"  # 包含的目录，指定要打包的源代码目录
+
+[tool.ruff.lint.isort]
+known-first-party = ["demo"]  # 指定项目的第一方模块，用于代码排序
+
+[tool.black]
+line-length = 100  # 指定代码行的最大长度
 
 [[tool.poetry.source]]
-name = "github"
-url = "https://pypi.pkg.github.com/mrlonely1986"
-priority = "primary"
+name = "github"  # 源的名称
+url = "https://pypi.pkg.github.com/mrlonely1986"  # GitHub Packages 的 URL
+priority = "primary"  # 源的优先级
